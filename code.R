@@ -54,7 +54,7 @@ artG <- '\\bil\\b'
 artS <- '\\bel\\b'
 
 prIVamoG <- '(amo\\b)'
-prIVamoS <- '(àno\\b|emo\\b)'
+prIVamoS <- '(Ã no\\b|emo\\b)'
 
 prVIanoG <- '(ano\\b)'
 prVIanoS <- '(ono\\b|eno\\b)'
@@ -62,8 +62,8 @@ prVIanoS <- '(ono\\b|eno\\b)'
 impfVIvanoG <- '(vano\\b)'
 impfVIvanoS <- '(vono\\b|veno\\b)'
 
-futrG <- '[^\\bp](a|e|i|o|u)(rò|rai|rà|remo|rete|ranno)\\b'
-futrS <- '(a|e|i|o|u)[r](rò|rai|rà|remo|rete|ranno)\\b'
+futrG <- '[^\\bp](a|e|i|o|u)(rÃ²|rai|rÃ |remo|rete|ranno)\\b'
+futrS <- '(a|e|i|o|u)[r](rÃ²|rai|rÃ |remo|rete|ranno)\\b'
 
 congG <- '(\\babbia\\b|\\bfaccia\\b|\\bscriva\\b|\\voglia\\b|\\bdebba\\b|\\bpossa\\b|\\babbiano\\b|\\bhabbiano\\b|\\bfacciano\\b|\\bscrivano\\b|\\vogliano\\b|\\bdebbano\\b|\\bpossano\\b)'
 congS <- '(\\babbi\\b|\\bfacci\\b|\\bscrivi\\b|\\vogli\\b|\\bdebbi\\b|\\bpossi\\b|\\babbino\\b|\\bhabbino\\b|\\bfaccino\\b|\\bscrivino\\b|\\voglino\\b|\\bdebbino\\b|\\bpossino\\b)'
@@ -189,17 +189,12 @@ fviz_screeplot(features_ca, title = "figure 1") +
 
 summary(features_ca)
 
-fviz_ca_biplot(features_ca, map="rowprincipal", repel=TRUE)
-
-help(fviz_ca_biplot)
 fviz_ca_biplot(features_ca, map="rowprincipal", repel=TRUE, 
                shape.col=19, col.row = "darkgrey",
                labelsize=4, pointsize = 1,
                title = "figure 2. Correspondence analysis") +
   theme(axis.text.x=element_blank(),
         axis.text.y=element_blank(),
-        axis.title.x=element_blank(),
-        axis.title.y=element_blank(),
         axis.line = element_line(
           colour = NULL,
           size = NULL,
@@ -231,7 +226,6 @@ summary(features.crg, add_ci = TRUE)
 screeplot(features.crg, add_ci = TRUE,
           main = "figure 3")
 
-help(plot.corregp)
 plot(features.crg, x_ell = TRUE, 
      xsub = "measure.time",
      col_top = "black",
@@ -239,6 +233,4 @@ plot(features.crg, x_ell = TRUE,
      cex_btm = 1,
      col_ell = "grey",
      lwd_ell = 0.3,
-     main = "figure 4. Correspondence regression") 
-
-anova(features.crg, nf = 2)
+     main = "figure 4. Correspondence regression")
